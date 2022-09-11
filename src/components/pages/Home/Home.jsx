@@ -1,12 +1,17 @@
 import "./Home.css";
 import React from "react";
-
-function Home() {
+import { connect } from "react-redux";
+import MyForm from "../My-Form/My-Form";
+const mapStateToProps = (state) => {
+  return { users: state.users };
+};
+function Home(user) {
   return (
     <div className="home">
       <h1>Home</h1>
+      <MyForm props={user} />
     </div>
   );
-};
+}
 
-export default Home;
+export default connect(mapStateToProps)(Home);
